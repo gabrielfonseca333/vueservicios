@@ -16,7 +16,7 @@
             <p><b>Compañía:</b> {{cli.companyName}}</p>
         <p style="background-color: yellow"><b>Pais:</b> {{cli.country}}</p>
         <p><b>Ciudad:</b> {{cli.city}}</p>
-        <p><b>Direccion:</b> {{cli.address}}</p>
+        <p><b>Direccion:</b> {{cli.address}}</p>                
         <p class="rubik-wet-paint-regular"><b>Teléfono:</b> {{cli.phone}}</p>
         </div>
         

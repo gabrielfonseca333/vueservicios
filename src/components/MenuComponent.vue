@@ -2,7 +2,7 @@
   <div>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">Navbar</a>
+        <router-link class="navbar-brand" to="/">You Are The Goat, S.L.</router-link>
         <button
           class="navbar-toggler"
           type="button"
@@ -55,8 +55,8 @@
 </template>
 
 <script>
-import axios from 'axios';
-import Global from '@/Global';
+import ServiceEmpleados from "./../services/ServiceEmpleados"
+const service = new ServiceEmpleados();
 
 export default {
     name: "MenuComponent",
@@ -66,11 +66,8 @@ export default {
         }
     },
     mounted(){
-        let request = "api/empleados/oficios"
-        let url = Global.urlApiEmpleados + request
-        axios.get(url).then(response=>{
-            console.log("Leyendo oficios")
-            this.oficios = response.data
+        service.getOficios().then(result=>{
+          this.oficios=result
         })
     }
 };

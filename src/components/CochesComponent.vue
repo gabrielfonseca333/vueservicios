@@ -21,12 +21,8 @@
 </template>
 
 <script>
-import axios from "axios";
-import Global from './../Global'
-//SI NECESITAMOS VARIABLES DECLARADAS PARA UTILIZARLAS
-//EN TODOS LOS METODOS (mounted, created, methods)
-//LA DECLARAMOS AQUI
-
+import ServiceCoches from "./../services/ServiceCoches"
+const service = new ServiceCoches();
 
 export default {
   name: "CochesComponent",
@@ -36,14 +32,11 @@ export default {
     };
   },
   mounted() {
-    let request = "webresources/coches";
-    //LAS VARIABLES DECLARADAS POR ENCIMA DE export default
-    //NO UTILIZAN LA PALABRA this
-    let url = Global.urlApiCoches + request;
-    axios.get(url).then((response) => {
-      console.log("⭐Leyendo...");
-      this.coches = response.data;
-    });
+    
+    service.getCoches.then(result =>{
+      this.coches = result
+    })
+    
   },
 };
 </script>
